@@ -1,0 +1,6 @@
+{
+  "name": "Professional Portfolio",
+  "description": "An interactive, fully responsive professional portfolio and resume builder featuring skill search, customizable sections, recruiter tools, and high-quality downloadable PDF resume export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

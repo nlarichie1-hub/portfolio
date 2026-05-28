@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom Link Green and Soft White colors */
+  --color-linkgreen: #B7E4C7;
+  --color-linkgreen-hover: #95D5B2;
+  --color-linkgreen-light: #E8F5E9;
+  --color-linkgreen-deep: #081C15;
+  --color-linkgreen-dark: #1b4332;
+  --color-linkgreen-medium: #40916C;
+
+  /* Custom Forest Green colors */
+  --color-forest-950: #0a1f14;
+  --color-forest-900: #123321;
+  --color-forest-800: #1b4931;
+  --color-forest-700: #256041;
+  --color-forest-650: #2b704c;
+  --color-forest-600: #328158;
+  --color-forest-500: #3FA06F;
+  --color-forest-400: #5cb58a;
+  --color-forest-300: #88cca9;
+  --color-forest-200: #b4e2c9;
+  --color-forest-100: #daf3e5;
+  --color-forest-50: #f2faf5;
+
+  /* Off-white and Warm Sand colors */
+  --color-cream-100: #fbf9f4;
+  --color-cream-200: #f9f4ea;
+  --color-cream-300: #eadecc;
+  --color-cream-50: #fdfdfc;
+  --color-sage-100: #f2f5f0;
+  --color-sage-200: #e2e9de;
+  --color-sage-300: #cbd6c5;
+  --color-sage-700: #4c5c44;
+
+  --color-gold-500: #b8935c;
+  --color-gold-650: #a37c46;
+  --color-gold-750: #8d6b3b;
+  --color-gold-50: #fcf8f2;
+
+  --animate-spin-slow: spin-slow 18s linear infinite;
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.glow-indigo {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+.glow-card-hover:hover {
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.25);
+  border-color: rgba(99, 102, 241, 0.5) !important;
+  transform: translateY(-2px);
+}
+
+.glow-text-glowing {
+  text-shadow: 0 0 12px rgba(129, 140, 248, 0.4);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-sage-300);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sage-700);
+}
+
+/* Print Specific Overrides */
+@media print {
+  /* Hide non-resume sections completely */
+  .no-print, 
+  header, 
+  nav, 
+  button, 
+  .settings-sidebar, 
+  .customizer-tab, 
+  .intro-callout,
+  .print-banner {
+    display: none !important;
+  }
+
+  /* Make background pure white, text dark and margins crisp */
+  html, body {
+    background-color: #ffffff !important;
+    background-image: none !important;
+    color: #123321 !important;
+    font-size: 11pt !important;
+    line-height: 1.45 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Clean up resume container for hardcopy export */
+  .print-resume {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  /* Prevent page breaks in high-priority fields */
+  .avoid-break-inside {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  @page {
+    size: letter;
+    margin: 1.5cm 1.5cm 1.5cm 1.5cm;
+  }
+}
